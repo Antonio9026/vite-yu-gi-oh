@@ -2,7 +2,7 @@
 import axios from "axios"
 import Card from "./Card.vue"
 export default {
-    components:{
+    components: {
         Card,
     },
     data() {
@@ -26,26 +26,40 @@ export default {
 </script>
 
 <template>
-    <div class="cards-container">
-        <div class="col" v-for="card in cardList">
-           <Card :card="card"></Card>
+    <div class="wrapper">
+        <div class="cards-container">
+
+            <div class="col" v-for="card in cardList" key="card.id">
+                <Card :card="card"></Card>
+            </div>
+
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.cards-container {
+.wrapper {
     width: 80%;
+    padding: 80px 0;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
    
 }
 
-.col {
-    width: 200px;
-    width: calc(100% / 5);
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    padding-left: 40px;
+    background-color: white;
 }
 
 
+.col {
+    width: calc(100% / 5);
+    padding: 20px 0;
+
+
+}
 </style>

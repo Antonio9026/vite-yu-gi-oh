@@ -3,8 +3,8 @@ import TheHeader from './components/TheHeader.vue';
 import CardList from './components/CardList.vue';
 import Card from './components/Card.vue';
 
-export default{
-  components:{
+export default {
+  components: {
     TheHeader,
     CardList,
     Card,
@@ -13,15 +13,17 @@ export default{
 </script>
 
 <template>
-<TheHeader></TheHeader>
-<main>
-  <CardList>
-    <Card></Card>
-  </CardList>
+  <TheHeader></TheHeader>
+  <main>
+    <CardList>
+      <Card></Card>
+    </CardList>
   </main>
-
 </template>
 
 <style lang="scss" >
-
+main {
+  width: 100%;
+  background-color: #d48f38;
+}
 </style>
