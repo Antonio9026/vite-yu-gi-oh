@@ -15,7 +15,7 @@ export default {
             <img :src="card.card_images[0].image_url" alt="">
         </div>
         <div class="card-info">
-            <h3>{{ card.name }}</h3>
+            <h5>{{ card.name.toUpperCase() }}</h5>
 
             <p>{{ card.archetype }}</p>
         </div>
@@ -28,13 +28,22 @@ export default {
     height: 400px;
     width: 180px;
     background-color: #d48f38;
+    text-align: center;
+    
 }
-
+h5{
+    color: white;
+}
 .img-container {
     width: 100%;
 }
 
 img {
     width: 100%;
+}
+.card-info{
+    width: 90%;
+    margin: 0 auto;
+    margin-top:20px;
 }
 </style>

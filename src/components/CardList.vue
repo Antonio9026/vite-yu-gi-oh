@@ -59,7 +59,5 @@ export default {
 .col {
     width: calc(100% / 5);
     padding: 20px 0;
-
-
 }
 </style>
