@@ -7,19 +7,28 @@ export default {
     },
     data() {
         return {
-            cardList: []
+            cardList: [],
+            archetypeList:[]
         }
     },
     methods: {
-        fetchCharacters() {
+        fetchCardList() {
             const url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0"
             axios.get(url).then((response) => {
                 this.cardList = response.data.data;
             })
+        },
+        fetchArchetypeList() {
+            const url = "https://db.ygoprodeck.com/api/v7/archetypes.php"
+            axios.get(url).then((response) => {
+                this.archetypeList = response.data;
+                console.log( this.archetypeList);
+            })
         }
     },
     mounted() {
-        this.fetchCharacters()
+        this.fetchCardList();
+        this.fetchArchetypeList()
     }
 
 }
