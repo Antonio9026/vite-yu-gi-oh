@@ -8,7 +8,8 @@ export default {
     data() {
         return {
             cardList: [],
-            archetypeList:[]
+            archetypeList:[],
+            searchArchetype:""
         }
     },
     methods: {
@@ -35,7 +36,11 @@ export default {
 </script>
 
 <template>
+    <select name="" id="archetype" v-model="searchArchetype">
+             <option :value="archetype.archetype_name"  v-for="archetype, in archetypeList">{{ archetype.archetype_name}}</option>
+    </select>
     <div class="wrapper">
+       
         <div class="cards-container">
 
             <div class="col" v-for="card in cardList" key="card.id">
@@ -68,5 +73,9 @@ export default {
 .col {
     width: calc(100% / 5);
     padding: 20px 0;
+}
+
+#archetype{
+ width: 100px;
 }
 </style>
