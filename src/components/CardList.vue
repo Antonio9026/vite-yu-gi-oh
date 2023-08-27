@@ -14,7 +14,12 @@ export default {
     },
     methods: {
         fetchCardList() {
-            const url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0"
+            let url = ""
+            if (this.searchArchetype === "") {
+                url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0"
+            }else{
+                url = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${this.searchArchetype}&num=20&offset=0`
+            }
             axios.get(url).then((response) => {
                 this.cardList = response.data.data;
             })
@@ -27,6 +32,7 @@ export default {
             })
         }
     },
+   
     mounted() {
         this.fetchCardList();
         this.fetchArchetypeList()
@@ -36,8 +42,8 @@ export default {
 </script>
 
 <template>
-    <select name="" id="archetype" v-model="searchArchetype">
-             <option :value="archetype.archetype_name"  v-for="archetype, in archetypeList">{{ archetype.archetype_name}}</option>
+    <select name="" id="archetype" v-model="searchArchetype" @click="fetchCardList">
+             <option :value="archetype.archetype_name "  v-for="archetype, in archetypeList">{{ archetype.archetype_name}}</option>
     </select>
     <div class="wrapper">
        
